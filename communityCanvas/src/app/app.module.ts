@@ -15,6 +15,7 @@ import { PrivatePageComponent } from './components/private-page/private-page.com
 import { UploadFileComponent } from './components/upload-file/upload-file.component';
 import { UploadTaskComponent } from './components/upload-task/upload-task.component';
 import { DropzoneDirective } from './directives/dropzone.directive';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { DropzoneDirective } from './directives/dropzone.directive';
     PrivatePageComponent
     UploadFileComponent,
     UploadTaskComponent,
-    DropzoneDirective
+    DropzoneDirective,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,

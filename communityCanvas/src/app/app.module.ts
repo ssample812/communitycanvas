@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { environment } from '../environments/environment';
 import { LoginPageComponent } from './components/login-page/login-page.component';
@@ -22,7 +23,7 @@ import { DropzoneDirective } from './directives/dropzone.directive';
     AppComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    PrivatePageComponent
+    PrivatePageComponent,
     UploadFileComponent,
     UploadTaskComponent,
     DropzoneDirective
@@ -34,6 +35,8 @@ import { DropzoneDirective } from './directives/dropzone.directive';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

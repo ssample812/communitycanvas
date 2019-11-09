@@ -1,0 +1,18 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-profile-page',
+  templateUrl: './profile-page.component.html',
+  styleUrls: ['./profile-page.component.css']
+})
+export class ProfilePageComponent implements OnInit {
+  private username: string
+  private bio: string
+  private image: file
+  private mediums: Array<string>
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

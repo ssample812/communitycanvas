@@ -8,17 +8,11 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireStorageModule } from '@angular/fire/storage';
 
 import { environment } from '../environments/environment';
-import { UploadFileComponent } from './components/upload-file/upload-file.component';
-import { UploadTaskComponent } from './components/upload-task/upload-task.component';
-import { DropzoneDirective } from './directives/dropzone.directive';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    UploadFileComponent,
-    UploadTaskComponent,
-    DropzoneDirective
+    AppComponent
   ],
   imports: [
     BrowserModule,

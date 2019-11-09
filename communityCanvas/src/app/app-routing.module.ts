@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreatePostComponent } from './components/create-post/create-post.component';
+import { UploadFileComponent } from './components/upload-file/upload-file.component';
 
 
 const routes: Routes = [
-  {path: 'create-post/:id',component: CreatePostComponent}
+  {path: '/upload',component: UploadFileComponent}
 ];
 
 @NgModule({

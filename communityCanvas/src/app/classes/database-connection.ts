@@ -8,11 +8,11 @@ export abstract class DatabaseConnection {
       this.docID=afs.createId();
      }
 
-    getID():string {
+    protected getID():string {
       return this.docID;
     }
 
     abstract store(doc:Object);
-
+    
     abstract read():Object;
 }

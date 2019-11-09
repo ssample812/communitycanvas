@@ -1,11 +1,10 @@
-import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AngularFireUploadTask} from '@angular/fire/storage';
+import { AngularFireUploadTask, AngularFireStorage } from '@angular/fire/storage';
 import { tap, finalize } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
+import { DatabaseService } from 'src/app/services/database.service';
 import { FileStorageService } from 'src/app/services/file-storage.service';
-import { PostsService } from 'src/app/services/posts.service';
-import { async } from 'q';
 
 @Component({
   selector: 'app-upload-task',
@@ -15,24 +14,22 @@ import { async } from 'q';
 export class UploadTaskComponent implements OnInit {
 
   @Input() file:File;
-  @Input() ctr:number;
-  @Input() postid:string;
-  @Output() downloadURL:EventEmitter<string>=new EventEmitter<string>();
   
   task: AngularFireUploadTask;
-  url:string;
+
   static ctr:number=0;
 
   percentage: Observable<number>;
   snapshot: Observable<any>;
-  constructor(private storage:FileStorageService,private db:PostsService,private route:ActivatedRoute) { }
+  downloadURL: string;
+  constructor(private storage:FileStorageService,private db:DatabaseService,private route:ActivatedRoute) { }
 
   ngOnInit() {
     this.startUpload();
   }
 
   startUpload(){
-    const path=this.postid+"_"+this.ctr;
+    const path='EX PATH'
 
     const ref=this.storage.getRef(path)
 
@@ -41,12 +38,10 @@ export class UploadTaskComponent implements OnInit {
     this.percentage=this.task.percentageChanges();
 
     this.snapshot=this.task.snapshotChanges().pipe(
-      // tap(console.log),
+      tap(console.log),
 
       finalize(async()=>{
-        this.url=await ref.getDownloadURL().toPromise();
-        this.downloadURL.emit(this.url)
-        
+        this.downloadURL=await ref.getDownloadURL().toPromise();
       }),
     );
   }

@@ -1,5 +1,5 @@
 export interface Post {
-    files:FileList,
+    files:string[],
     text:string,
     postedby:string,
     comments:Comment[]

@@ -9,6 +9,10 @@ import { Observable } from 'rxjs';
 })
 export class PostsService extends DatabaseConnection {
 
+  update( field:Object, id:string) {
+    this.collection.doc(id).update(field);
+  }
+
   private collection:AngularFirestoreCollection<Post>;
 
   constructor(afs:AngularFirestore) {

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PostsService } from 'src/app/services/posts.service';
 import { Observable } from 'rxjs';
 import { Post } from 'src/app/interfaces/post';
+import { FormGroup, FormControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-post',
@@ -11,12 +13,35 @@ import { Post } from 'src/app/interfaces/post';
 export class CreatePostComponent implements OnInit {
 
   private docID:string;
-  private postList:Observable<Post[]>
+  private newPost:Post;
+  // private user:string;
 
-  constructor(private db:PostsService) { }
+  createPostForm=new FormGroup({
+    text:new FormControl(''),
+  })
+  urlList: string[]=new Array<string>();
+  constructor(private db:PostsService, private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.db.getID();
+    let user=this.route.snapshot.paramMap.get('id');
+    this.docID=this.db.getID();
+    this.newPost={
+      postedby:user,
+      comments:null,
+      files:[],
+      text:null
+    }
+  }
+
+  onSubmit(){
+    this.newPost.text=this.createPostForm.value.text;
+    this.newPost.files=this.urlList;
+    this.db.store(this.newPost);
+  }
+
+  onOutput(url:string){
+    console.log("THIS IS BEING CALLED");
+    this.urlList.push(url);
   }
 
 }

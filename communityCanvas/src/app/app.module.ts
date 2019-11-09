@@ -23,7 +23,7 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
     AppComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    PrivatePageComponent
+    PrivatePageComponent,
     UploadFileComponent,
     UploadTaskComponent,
     DropzoneDirective,
@@ -35,7 +35,7 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
     AngularFireModule.initializeApp(environment.firebase, 'fatplant'),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireAuthModule,
+    AngularFireAuth,
   ],
   providers: [],
   bootstrap: [AppComponent]

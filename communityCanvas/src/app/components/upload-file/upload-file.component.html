@@ -1,0 +1,16 @@
+<div class="dropzone"
+    dropzone
+    (hovered)="toggleHover($event)"
+    (dropped)="onDrop($event)"
+    [class.hovering]="isHovering">
+    <h2>Please Upload Files for your Event</h2>
+    <p>Drag and Drop Files</p>
+
+    <input mat-input type="file" (change)="selectFile($event)" value="Or choose a file Here">
+</div>
+
+<h1>Uploads</h1>
+
+<div *ngFor="let file of files">
+    <app-upload-task [file]="file"></app-upload-task>
+</div>

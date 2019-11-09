@@ -17,6 +17,7 @@ export class CreatePostComponent implements OnInit {
   // private user:string;
 
   createPostForm=new FormGroup({
+    title:new FormControl(''),
     text:new FormControl(''),
   })
   urlList: string[]=new Array<string>();
@@ -27,6 +28,7 @@ export class CreatePostComponent implements OnInit {
     this.docID=this.db.getID();
     this.newPost={
       postedby:user,
+      title:null,
       comments:null,
       files:[],
       text:null
@@ -35,6 +37,7 @@ export class CreatePostComponent implements OnInit {
 
   onSubmit(){
     this.newPost.text=this.createPostForm.value.text;
+    this.newPost.title=this.createPostForm.value.title;
     this.newPost.files=this.urlList;
     this.db.store(this.newPost);
   }

@@ -16,6 +16,8 @@ import { DropzoneDirective } from './directives/dropzone.directive';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PostComponent } from './components/post/post.component';
 
 
 
@@ -25,7 +27,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UploadFileComponent,
     UploadTaskComponent,
     DropzoneDirective,
-    CreatePostComponent
+    CreatePostComponent,
+    DashboardComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

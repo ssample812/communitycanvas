@@ -1,5 +1,9 @@
 <form [formGroup]="createPostForm">
     <mat-form-field>
+        <mat-label>Post Title</mat-label>
+        <input matInput type="text" formControlName="title">
+    </mat-form-field>
+    <mat-form-field>
         <mat-label>Post text</mat-label>
         <input matInput type="textfield" formControlName="text">
     </mat-form-field>

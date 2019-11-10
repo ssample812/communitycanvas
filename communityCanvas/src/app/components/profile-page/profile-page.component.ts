@@ -1,40 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from 'src/app/services/profile.service';
-import { Users } from 'src/app/interfaces/users';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.css']
 })
-export class ProfilePageComponent implements Users {
+export class ProfilePageComponent implements OnInit
+ {
   public password: string;
   public username: string;
   public bio: string;
   public image: File;
-  private afs: AngularFirestore;
 
-  private profileService = new ProfileService(this.username, this.afs);
-  constructor(username:string) { 
-    this.username = username;
+  constructor(private profileService: ProfileService, private router: Router, private route:ActivatedRoute) { 
+    this.profileService = profileService;
   }
 
-  store(profileService: ProfileService) {
+  store() {
     return;
   }
 
-  read() {
-    let data = this.profileService.read()
-    data.subscribe({
-      next(data) {
-        this.bio = data["bio"];
-        this.image = data["image"];
-      }
-    });
-  }
-
   ngOnInit() {
+    this.username = this.route.snapshot.paramMap.get('username');
+    this.profileService.read(this.username).subscribe(data=>{
+      this.bio = data["bio"];
+      this.image = data["image"];
+    })
+
   }
 
 }

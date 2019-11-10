@@ -15,18 +15,17 @@ export class ProfileService extends DatabaseConnection implements Users{
 
   private collection:AngularFirestoreCollection<Users>;
 
-  store(ProfileService) {
+  store() {
     return;
   }
 
-  read():Observable<Users[]> {
+  read(username:string):Observable<Users[]> {
+    this.collection= this.afs.collection('items', ref => ref.where("username", "==", username));
     let data=this.collection.valueChanges();
     return data;
   }
 
-  constructor(username:string, afs:AngularFirestore ) { 
+  constructor(afs:AngularFirestore ) { 
     super(afs);
-    this.username = username;
-    this.collection= this.afs.collection('items', ref => ref.where("username", "==", username));
   }
 }

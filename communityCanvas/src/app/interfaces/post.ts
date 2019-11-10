@@ -3,5 +3,6 @@ export interface Post {
     text:string,
     title:string,
     postedby:string,
-    comments:Comment[]
+    comments:Comment[],
+    medium:string;
 }

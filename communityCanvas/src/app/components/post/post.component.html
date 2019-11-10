@@ -3,7 +3,11 @@
         <div class="mdc-card__media mdc-card__media--16-9 demo-card__media"><img [src]=fileLink *ngFor="let fileLink of fileList"></div>
         <div class="demo-card__primary">
             <h2 class="demo-card__title mdc-typography mdc-typography--headline6">{{data.title}}</h2>
-            <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">by {{data.postedby}}</h3>
+            <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">by {{data.postedby}} 
+            <i class="material-icons" *ngIf="data.medium=='visual'">brush</i>
+            <i class="material-icons" *ngIf="data.medium=='photo'">photo_camera</i>
+            <i class="material-icons" *ngIf="data.medium=='music'">music_note</i>
+            <i class="material-icons" *ngIf="data.medium=='written'">edit</i></h3>
         </div>
         <div class="demo-card__secondary mdc-typography mdc-typography--body2">{{data.text}}</div>
         </div>

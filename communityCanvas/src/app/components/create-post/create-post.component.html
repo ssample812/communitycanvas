@@ -7,6 +7,15 @@
         <mat-label>Post text</mat-label>
         <input matInput type="textfield" formControlName="text">
     </mat-form-field>
+    <mat-form-field>
+        <mat-label>Medium</mat-label>
+        <mat-select formControlName="medium">
+            <mat-option value="visual">Visual <i class="material-icons">brush</i></mat-option>
+            <mat-option value="photo">Photo<i class="material-icons">photo_camera</i></mat-option>
+            <mat-option value="music">Music<i class="material-icons">music_note</i></mat-option>
+            <mat-option value="written">Written<i class="material-icons">edit</i></mat-option>
+        </mat-select>
+    </mat-form-field>
     <app-upload-file [id]="docID" (downloadUrl)="onOutput($event)"></app-upload-file>
     <button mat-raised-button color="primary" class="submitBtn" (click)="onSubmit()">Create Post</button>
 </form>

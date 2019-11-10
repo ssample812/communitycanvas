@@ -8,6 +8,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireStorageModule } from '@angular/fire/storage';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material';
 
 import { environment } from '../environments/environment';
 import { UploadFileComponent } from './components/upload-file/upload-file.component';
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PostComponent } from './components/post/post.component';
+import { BufferComponent } from './components/buffer/buffer.component';
 
 
 
@@ -29,7 +31,8 @@ import { PostComponent } from './components/post/post.component';
     DropzoneDirective,
     CreatePostComponent,
     DashboardComponent,
-    PostComponent
+    PostComponent,
+    BufferComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { PostComponent } from './components/post/post.component';
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

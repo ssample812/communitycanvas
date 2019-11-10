@@ -1,5 +1,17 @@
+<div>
+    <mat-select (selectionChange)="selectChange($event.value)" placeholder="Select Medium">
+        <mat-option value="null">None</mat-option>
+        <mat-option value="visual">Visual<i class="material-icons">brush</i></mat-option>
+        <mat-option value="written">Written<i class="material-icons">edit</i></mat-option>
+        <mat-option value="photo">Photo<i class="material-icons">photo_camera</i></mat-option>
+        <mat-option value="music">Music<i class="material-icons">music_note</i></mat-option>
+    </mat-select>
+</div>
+
 <ul class="mdc-image-list mdc-image-list--masonry  my-masonry-image-list columns elevated">
-    <li class="mdc-image-list__item" *ngFor="let card of data">
-        <app-post [data]="card"></app-post>
-    </li>
+    <ng-container  *ngFor="let card of data">
+        <li class="mdc-image-list__item" *ngIf="card.medium==mediumFilter||!mediumFilter">
+                <app-post [data]="card"></app-post>
+            </li>
+    </ng-container>
 </ul>

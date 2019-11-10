@@ -19,15 +19,19 @@ export class CreatePostComponent implements OnInit {
   createPostForm=new FormGroup({
     title:new FormControl(''),
     text:new FormControl(''),
+    medium:new FormControl('')
   })
   urlList: string[]=new Array<string>();
   constructor(private db:PostsService, private route:ActivatedRoute) { }
 
   ngOnInit() {
+
+    //written, media(photos), music, visual 
     let user=this.route.snapshot.paramMap.get('id');
     this.docID=this.db.getID();
     this.newPost={
       postedby:user,
+      medium:null,
       title:null,
       comments:null,
       files:[],
@@ -39,6 +43,7 @@ export class CreatePostComponent implements OnInit {
     this.newPost.text=this.createPostForm.value.text;
     this.newPost.title=this.createPostForm.value.title;
     this.newPost.files=this.urlList;
+    this.newPost.medium=this.createPostForm.value.medium;
     this.db.store(this.newPost);
   }
 

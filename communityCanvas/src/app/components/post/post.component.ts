@@ -15,7 +15,6 @@ export class PostComponent implements OnInit {
 
   ngOnInit() {
     this.fileList=this.data.files
-    console.log(this.fileList)
   }
 
 }

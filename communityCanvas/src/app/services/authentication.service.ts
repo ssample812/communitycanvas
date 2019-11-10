@@ -5,6 +5,7 @@ import * as firebase from 'firebase/app';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthenticationService {
 
   constructor(

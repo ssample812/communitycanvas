@@ -8,6 +8,10 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthenticationGuard } from './services/authentication.guard';
+import { AuthenticationService } from './services/authentication.service';
+import { UserResolver } from './components/private-page/user.resolver';
+  
 
 import { environment } from '../environments/environment';
 import { LoginPageComponent } from './components/login-page/login-page.component';
@@ -17,6 +21,10 @@ import { UploadFileComponent } from './components/upload-file/upload-file.compon
 import { UploadTaskComponent } from './components/upload-task/upload-task.component';
 import { DropzoneDirective } from './directives/dropzone.directive';
 
+import * as firebase from 'firebase';
+import { UserService } from './services/user.service';
+
+firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
@@ -38,7 +46,7 @@ import { DropzoneDirective } from './directives/dropzone.directive';
     FormsModule, 
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthenticationService, UserService, UserResolver, AuthenticationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

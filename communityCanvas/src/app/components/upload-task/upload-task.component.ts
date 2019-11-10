@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { AngularFireUploadTask, AngularFireStorage } from '@angular/fire/storage';
 import { tap, finalize } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
-import { DatabaseService } from 'src/app/services/database.service';
+//import { DatabaseService } from 'src/app/services/database.service';
 import { FileStorageService } from 'src/app/services/file-storage.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class UploadTaskComponent implements OnInit {
   percentage: Observable<number>;
   snapshot: Observable<any>;
   downloadURL: string;
-  constructor(private storage:FileStorageService,private db:DatabaseService,private route:ActivatedRoute) { }
+  constructor(private storage:FileStorageService, private route:ActivatedRoute) { }
 
   ngOnInit() {
     this.startUpload();

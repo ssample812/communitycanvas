@@ -12,7 +12,7 @@ export class ProfilePageComponent implements OnInit
   public password: string;
   public username: string;
   public bio: string;
-  public image: File;
+  public image: string;
 
   constructor(private profileService: ProfileService, private router: Router, private route:ActivatedRoute) { 
     this.profileService = profileService;

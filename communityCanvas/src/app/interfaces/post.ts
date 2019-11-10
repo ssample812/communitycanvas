@@ -4,5 +4,6 @@ export interface Post {
     title:string,
     postedby:string,
     comments:Comment[],
-    medium:string;
+    medium:string,
+    imgFileUrl
 }

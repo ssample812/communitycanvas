@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostsService } from 'src/app/services/posts.service';
 import { Observable } from 'rxjs';
 import { Post } from 'src/app/interfaces/post';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -14,6 +14,7 @@ export class CreatePostComponent implements OnInit {
 
   private docID:string;
   private newPost:Post;
+  private imgFileUrl:string;
   // private user:string;
 
   createPostForm=new FormGroup({
@@ -35,6 +36,7 @@ export class CreatePostComponent implements OnInit {
       title:null,
       comments:null,
       files:[],
+      imgFileUrl:null,
       text:null
     }
   }
@@ -44,12 +46,17 @@ export class CreatePostComponent implements OnInit {
     this.newPost.title=this.createPostForm.value.title;
     this.newPost.files=this.urlList;
     this.newPost.medium=this.createPostForm.value.medium;
+    console.log(this.newPost.imgFileUrl);
     this.db.store(this.newPost);
   }
 
   onOutput(url:string){
-    console.log("THIS IS BEING CALLED");
     this.urlList.push(url);
+  }
+
+  onImgOutput(url:string){
+    console.log("CALLED")
+    this.newPost.imgFileUrl=url;
   }
 
 }

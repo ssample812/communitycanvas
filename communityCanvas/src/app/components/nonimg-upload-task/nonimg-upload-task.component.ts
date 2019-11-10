@@ -8,15 +8,16 @@ import { PostsService } from 'src/app/services/posts.service';
 import { async } from 'q';
 
 @Component({
-  selector: 'app-upload-task',
-  templateUrl: './upload-task.component.html',
-  styleUrls: ['./upload-task.component.css']
+  selector: 'app-nonimg-upload-task',
+  templateUrl: './nonimg-upload-task.component.html',
+  styleUrls: ['./nonimg-upload-task.component.css']
 })
-export class UploadTaskComponent implements OnInit {
+export class NonimgUploadTaskComponent implements OnInit {
 
   @Input() file:File;
+  @Input() ctr:number;
   @Input() postid:string;
-  @Output() imgdownloadURL:EventEmitter<string>=new EventEmitter<string>();
+  @Output() downloadURL:EventEmitter<string>=new EventEmitter<string>();
   
   task: AngularFireUploadTask;
   url:string;
@@ -31,7 +32,9 @@ export class UploadTaskComponent implements OnInit {
   }
 
   startUpload(){
-    const path=this.postid+"_IMG"
+    const path=this.postid+"_"+NonimgUploadTaskComponent.ctr;
+
+    NonimgUploadTaskComponent.ctr++;
 
     const ref=this.storage.getRef(path)
 
@@ -44,7 +47,7 @@ export class UploadTaskComponent implements OnInit {
 
       finalize(async()=>{
         this.url=await ref.getDownloadURL().toPromise();
-        this.imgdownloadURL.emit(this.url)
+        this.downloadURL.emit(this.url)
       }),
     );
   }

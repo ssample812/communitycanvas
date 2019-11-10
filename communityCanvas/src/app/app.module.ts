@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PostComponent } from './components/post/post.component';
 import { BufferComponent } from './components/buffer/buffer.component';
+import { NonimgUploadTaskComponent } from './components/nonimg-upload-task/nonimg-upload-task.component';
 
 
 
@@ -33,6 +34,7 @@ import { BufferComponent } from './components/buffer/buffer.component';
     DashboardComponent,
     PostComponent,
     BufferComponent,
+    NonimgUploadTaskComponent,
   ],
   imports: [
     BrowserModule,

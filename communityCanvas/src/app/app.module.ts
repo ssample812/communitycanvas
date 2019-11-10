@@ -65,7 +65,7 @@ firebase.initializeApp(environment.firebase);
     BrowserAnimationsModule,
     MatSelectModule,
   ],
-  providers: [AuthenticationService, UserService, UserResolver, AuthenticationGuard],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

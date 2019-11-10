@@ -24,6 +24,7 @@ export class UploadTaskComponent implements OnInit {
 
   percentage: Observable<number>;
   snapshot: Observable<any>;
+  downloadURL: string;
   constructor(private storage:FileStorageService,private db:PostsService,private route:ActivatedRoute) { }
 
   ngOnInit() {

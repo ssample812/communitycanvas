@@ -34,14 +34,14 @@ export class LoginPageComponent implements OnInit {
   tryGoogleLogin(){
     this.authService.doGoogleLogin()
     .then(res => {
-      this.router.navigate(['/private']);
+      this.router.navigate(['/private-page']);
     })
   }
 
   tryLogin(value){
     this.authService.doLogin(value)
     .then(res => {
-      this.router.navigate(['/private']);
+      this.router.navigate(['/private-page']);
     }, err => {
       console.log(err);
       this.errorMessage = err.message;

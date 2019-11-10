@@ -13,6 +13,5 @@ export abstract class DatabaseConnection {
     }
 
     abstract store(doc:Object);
-
     abstract read():Object;
 }

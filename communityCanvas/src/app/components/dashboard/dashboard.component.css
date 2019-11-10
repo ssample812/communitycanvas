@@ -1,0 +1,11 @@
+li{
+    border: 1px solid black;
+}
+
+.columns{
+    column-count: 3;
+}
+
+div{
+    margin:50px;
+}

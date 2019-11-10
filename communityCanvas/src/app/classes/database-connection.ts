@@ -1,18 +1,18 @@
-// import {AngularFirestore} from '@angular/fire/firestore';
+import {AngularFirestore} from '@angular/fire/firestore';
 
-// export abstract class DatabaseConnection {
+export abstract class DatabaseConnection {
 
-//     protected docID: string;
+    protected docID: string;
 
-//     constructor(protected afs:AngularFirestore) {
-//       this.docID=afs.createId();
-//      }
+    constructor(protected afs:AngularFirestore) {
+      this.docID=afs.createId();
+     }
 
-//     protected getID():string {
-//       return this.docID;
-//     }
+    getID():string {
+      return this.docID;
+    }
 
-//     abstract store(doc:Object);
-    
-//     abstract read():Object;
-// }
+    abstract store(doc:Object);
+
+    abstract read():Object;
+}

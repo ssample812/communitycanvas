@@ -1,3 +1,5 @@
+
+<input mat-input type="file" (change)="selectFile($event)" text="Upload an image with your post">
 <div class="dropzone"
     dropzone
     (hovered)="toggleHover($event)"
@@ -5,12 +7,13 @@
     [class.hovering]="isHovering">
     <h2>Please Upload Files for your Event</h2>
     <p>Drag and Drop Files</p>
-
-    <input mat-input type="file" (change)="selectFile($event)" value="Or choose a file Here">
 </div>
 
 <h1>Uploads</h1>
 
+<div *ngIf="imgFile">
+    <app-upload-task [file]="imgFile" [postid]="id" (imgdownloadURL)="onImgOutput($event)"></app-upload-task>
+</div>
 <div *ngFor="let file of files">
-    <app-upload-task [file]="file"></app-upload-task>
+    <app-nonimg-upload-task [file]="file" [postid]="id" [ctr]="filectr" (downloadURL)="onOutput($event)"></app-nonimg-upload-task>
 </div>
